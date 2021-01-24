@@ -1,8 +1,9 @@
 <h3>Registration</h3>
-<?php
+<?
+include_once("functions.php");
 if(!isset($_POST["regbtn"])){
     ?>
-    <form action="index.php?page=3" method="POST">
+    <form action="registration.php" method="POST">
         <div class="form-group">
             <label for="login">Login:</label>
             <input type="text" name="login" class="form-control">
@@ -21,10 +22,11 @@ if(!isset($_POST["regbtn"])){
         </div>
         <button type='submit' name='regbtn' class="btn btn-primary">Register</button>
     </form>
-    <?php
+    <?
 } else {
-    if(register($_POST["login"], $_POST["passw1"],$_POST["email"])){
+    if(register($_POST["login"], $_POST["passw1"], $_POST["email"])){
         echo "<h3><span style='color:green'>Пользователь ".$_POST["login"]." добавлен!</span></h3>";
+        echo '<a class="nav-link" href="user.php">Show</a>';
     }
 }
 ?>
